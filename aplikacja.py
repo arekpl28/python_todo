@@ -18,6 +18,11 @@ class Aplikacja:
         self.zadania.append(zadanie)
         self.wypisz()
 
+    def usun(self):
+        indeks = self.pobierz_indeks()
+        del self.zadania[indeks]
+        self.wypisz()
+
     def oznacz_jako_zrobione(self):
         indeks = self.pobierz_indeks()
         self.zadania[indeks].ustaw_jako_zrobione()
@@ -27,7 +32,7 @@ class Aplikacja:
         jest_ok = False
         while not jest_ok:
             indeks = int(
-                input("Które wydarzenie mam oznaczyć jako zrobione: "))
+                input("Którego wydarzenia dotyczy działanie? : "))
             if indeks < len(self.zadania):
                 jest_ok = True
         return indeks
